@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        canvas{
+            width: 100%;
+            height: 600px;
+            border: 4px red solid;
+        }
+    </style>
+
+</head>
+<body>
+    Insert a number<input type="number" min="0" max="200" id="num">
+    <br>
+ 
+    Choose a color <input type="color" id="col">
+    <br>
+ 
+    <input type="button" onclick="fun()" value="Add">
+    <br>
+   
+    <canvas id="canvas"></canvas>
+
+<script>
+   var X=0;
+   
+    function fun(){
+        var col=document.getElementById("col").value;
+         var num=document.getElementById("num").value;
+
+        var canvas=document.getElementById("canvas");
+        var ctx=canvas.getContext("2d");
+
+        ctx.fillStyle=col;
+    if(num){
+        ctx.beginPath();
+        ctx.rect(X,canvas.height-num,20,num);
+        X+=30;
+        ctx.closePath();
+    }
+        console.log(X);
+        ctx.fill();  
+    }
+
+</script>
+
+</body>
+</html>

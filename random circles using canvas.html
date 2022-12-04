@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        canvas{
+            width: 100%;
+            height: 600px;
+            border: 4px red solid;
+        }
+    </style>
+
+</head>
+<body>
+    Enter a color to draw with<input type="color" id="col">
+    <br>
+    <br>
+    <input type="button" value="Apply" onclick="fun()">
+    <br>
+    <br>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        
+        function fun(){
+            var col=document.getElementById("col").value;
+            var canvas=document.getElementById("canvas");
+            var ctx=canvas.getContext("2d");
+
+       ctx.fillStyle=col;
+
+             for (var i=0;i<500;i++){
+                    ctx.beginPath();
+                    var x= Math.random()*600,
+                    y=Math.random()*600,
+                    r=Math.random()*10;
+                    ctx.arc(x,y,r,2*Math.PI,false);
+                    ctx.stroke();
+                    ctx.fill();
+                    ctx.closePath;
+        }
+
+    }
+    </script>
+</body>
+</html>
